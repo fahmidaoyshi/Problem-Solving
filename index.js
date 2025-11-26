@@ -92,3 +92,38 @@ console.log(evaluateResult([45, 67, 82, 95, "a", null]));
 console.log(evaluateResult([90, 80, 70, 60, 50, 40]));   
 console.log(evaluateResult([30]));                     
 console.log(evaluateResult([100, 110, -5]));  
+
+// Password 
+function createPerfectPassword(C) {
+  var { Name, Year } = C;
+
+  if (typeof Name !== "string") {
+    return "Invalid Input";
+  }
+
+  if (typeof Year !== "number") {
+    return "Invalid Input";    
+  }
+
+  if (Year < 1000) {
+  return "Invalid Input";
+}
+if (Year > 9999) {
+  return "Invalid Input";
+} 
+
+  var first = Name[0].toUpperCase();
+  var extra = Name.slice(1).toLowerCase();
+  var pass = first + extra + Year;
+
+  return pass;
+}
+
+console.log(createPerfectPassword({ Name: "salman", Year: 1990 }));
+console.log(createPerfectPassword({ Name: "rahim", Year: 200 }));
+console.log(createPerfectPassword({ Name: "karim", Year: 2023 }));
+console.log(createPerfectPassword("Invalid Object"));
+
+
+
+ 
