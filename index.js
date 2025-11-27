@@ -124,6 +124,43 @@ console.log(createPerfectPassword({ Name: "rahim", Year: 200 }));
 console.log(createPerfectPassword({ Name: "karim", Year: 2023 }));
 console.log(createPerfectPassword("Invalid Object"));
 
+// Savings
+function calculateMonthlyExpenses(D) {
+  var { income, expense } = D;
 
+  if (!Array.isArray(income)) {
+    return "Invalid Input";
+  }
+
+  if (typeof expense !== "number") {
+    return "Invalid Input";
+  }
+
+  let total = 0;
+
+  for (let data of income) {
+    if (typeof data === "number") {
+      if (data > 0) {
+        total = total + data;
+      } else {
+        return "Invalid Input"; 
+      }
+    } else {
+      return "Invalid Input"; 
+    }
+  }
+  let savings = total - expense;
+
+  if (savings <= 0) {
+    return "Save more money";
+  }
+
+  return savings;
+}
+
+console.log(calculateMonthlyExpenses({ income: [3000, 2000, 1500], expense: 5000 }));
+console.log(calculateMonthlyExpenses({ income: [1000, 2000], expense: 3500 }));
+console.log(calculateMonthlyExpenses({ income: "Invalid Array", expense: 1000 }));
+console.log(calculateMonthlyExpenses({ income: [5000, 7000], expense: "Invalid Living Cost" }));
 
  
